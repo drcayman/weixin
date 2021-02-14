@@ -2,7 +2,7 @@
 header('Content-type:application/json');
 require_once('./class/url.class.php');
 if ($_SERVER['HTTP_HOST'] == 'localhost') {
-    require('/Applications/phpstudy/WWW/weixin/curl.php');
+    require_once('/Applications/phpstudy/WWW/weixin/curl.php');
 } else {
     require_once('/www/wwwroot/'.$_SERVER['SERVER_NAME'].'/curl.php');
 }
