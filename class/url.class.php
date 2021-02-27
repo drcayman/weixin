@@ -6,7 +6,7 @@ class Url {
         
     }
     
-    public function check_url($urls) {
+    public function checkUrl($urls) {
         if ($urls) {
             $norm = [];
             $wx_abn = [];
@@ -15,9 +15,7 @@ class Url {
             for ($i = 0; $i < count($url_arr); $i++) {
                 preg_match('/[a-zA-z]+:\/\/[^\s]*/', $url_arr[$i], $url);
                 if ($url[0]) {
-                    if ($this->http_code($url[0]) == 200) {
-                        echo get_headers('https://qq.com');
-                        exit();
+                    if ($this->httpCode($url[0]) == 200) {
                         $headers = get_headers('http://mp.weixinbridge.com/mp/wapredirect?url='.$url[0]);
                         $Location = $headers[6];
                         if (preg_match('/Location: http/', $Location) == 1) {
@@ -39,7 +37,7 @@ class Url {
                 } else {
                     return array(
                         'code' => 201,
-                        'msg' => 'url参数错误，请传入带https或http的链接，多个链接用英文逗号分隔'
+                        'msg' => 'url参数错误,请传入带https或http的链接,，多个链接用英文逗号分隔'
                     );
                     exit();
                 }
@@ -62,7 +60,7 @@ class Url {
         return $res;
     }
     
-    private function http_code($url){
+    private function httpCode($url){
         $ch = curl_init();
         $timeout = 3;
         curl_setopt($ch,CURLOPT_FOLLOWLOCATION,1);

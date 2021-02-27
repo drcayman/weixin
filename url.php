@@ -11,7 +11,7 @@ $urls = $_GET['url'];
 $server = $_GET['server'];
 
 $url = new Url();
-$res = $url->check_url($urls);
+$res = $url->checkUrl($urls);
 if ($server) {
     $server = substr($server, -1) == '/' ? $server : $server.'/';
     if ($res['code'] == 200) {
